@@ -27,12 +27,13 @@
     </style>
     {% leaflet_js %}
     {% leaflet_css %}
-
+    {% now "jS F Y H:i" %}
     <script type="text/javascript">
         function map_init_basic(map, options) {
+
             {% for x in data %}
                 console.log('{{x}}')
-                L.marker([{{ x.long }}, {{ x.lat }}]).bindPopup("First Name: {{ x.first_name}} <br/><br/> Last Name:{{ x.last_name}} <br/><br/> Report Message: {{ x.msg_text}} <br/><br/>Longitude: {{x.long }} <br/><br/>Latitude: {{x.lat}} <br/><br/>Date: {{x.image}} <br/><br/> <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModalLong\">\n" +
+                L.marker([{{ x.long }}, {{ x.lat }}]).bindPopup("First Name: {{ x.first_name}} <br/><br/> Last Name:{{ x.last_name}} <br/><br/> Report Message: {{ x.msg_text}} <br/><br/>Longitude: {{x.long }} <br/><br/>Latitude: {{x.lat}}  <br/><br/> <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModalLong\">\n" +
                     "  More...\n" +
                     "</button> ")
                     .addTo(map);
